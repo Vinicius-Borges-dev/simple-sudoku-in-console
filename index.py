@@ -8,6 +8,12 @@ def createSudoku():
                 
     return sudoku
 
+def validaSudoku(sudoku, linha, coluna, numero):
+    for i in range(len(sudoku)):
+        if sudoku[linha][i] == numero or sudoku[i][coluna] == numero: return False
+    return True
+
+
 def printSudoku(sudoku):
     linhaExterna = 0
     colunaExterna = 0
@@ -45,3 +51,7 @@ def startGame():
                         print("Já existe esse numero na linha ou coluna")
                         continue
             
+
+sudoku = createSudoku()
+printSudoku(sudoku)
+startGame()
