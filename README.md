@@ -2,7 +2,7 @@
 
 ### Para testar, primeiro faça o clone com
 ``` 
-git clone https://github.com/Vinicius-Borges-dev/python-class.git](https://github.com/Vinicius-Borges-dev/simple-sudoku-in-console.git
+git clone https://github.com/Vinicius-Borges-dev/simple-sudoku-in-console.git
 ```
 
 ### Para rodar, use
