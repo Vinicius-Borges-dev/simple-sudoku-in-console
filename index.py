@@ -1,17 +1,32 @@
+
+import random
+
+def validaSudoku(sudoku, linha, coluna, numero):
+    for i in range(len(sudoku)):
+        if sudoku[linha][i] == numero or sudoku[i][coluna] == numero: return False
+    return True
+
+
 def createSudoku():
     sudoku = []
     
     for row in range(9):
         sudoku.append([])
         for col in range(9):
-            sudoku[row].append("+")
+            for i in range(20):
+                sudoku[row].append('+')
                 
     return sudoku
 
-def validaSudoku(sudoku, linha, coluna, numero):
-    for i in range(len(sudoku)):
-        if sudoku[linha][i] == numero or sudoku[i][coluna] == numero: return False
-    return True
+def fillSudoku(sudoku):
+    counter = 0
+    while counter <= 20:
+        randomRow = random.randint(0, len(sudoku))
+        randomCol = random.randint(0, len(sudoku))
+        randomNumber = random.randint(1,9)
+        if validaSudoku(sudoku, sudoku[randomRow], sudoku[randomCol]):
+            sudoku[randomRow][randomCol] = str(randomNumber)
+            break
 
 
 def printSudoku(sudoku):
@@ -53,5 +68,6 @@ def startGame():
             
 
 sudoku = createSudoku()
+fillSudoku(sudoku)
 printSudoku(sudoku)
 startGame()
