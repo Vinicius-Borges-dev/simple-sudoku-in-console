@@ -13,22 +13,20 @@ def createSudoku():
     for row in range(9):
         sudoku.append([])
         for col in range(9):
-            for i in range(20):
-                sudoku[row].append('+')
+            sudoku[row].append('_')
                 
     return sudoku
 
-def fillSudoku(sudoku):
-    counter = 0
-    while counter <= 20:
-        randomRow = random.randint(0, len(sudoku))
-        randomCol = random.randint(0, len(sudoku))
-        randomNumber = random.randint(1,9)
-        if validaSudoku(sudoku, sudoku[randomRow], sudoku[randomCol], randomNumber):
-            sudoku[randomRow][randomCol] = str(randomNumber)
-            break
-        counter += 1
-
+def fillSudoku():
+    count = 0
+    while count <= 50:
+        randomRow = random.randint(0, 8)
+        randomCol = random.randint(0, 8)
+        randomNum = random.randint(1,9)
+        if validaSudoku(sudoku, randomRow, randomCol, randomNum):
+            sudoku[randomRow][randomCol] = str(randomNum)
+            count += 1
+            
 
 def printSudoku(sudoku):
     linhaExterna = 0
@@ -69,6 +67,6 @@ def startGame():
             
 
 sudoku = createSudoku()
-fillSudoku(sudoku)
+fillSudoku()
 printSudoku(sudoku)
 startGame()
