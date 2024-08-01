@@ -24,7 +24,7 @@ def fillSudoku(sudoku):
         randomRow = random.randint(0, len(sudoku))
         randomCol = random.randint(0, len(sudoku))
         randomNumber = random.randint(1,9)
-        if validaSudoku(sudoku, sudoku[randomRow], sudoku[randomCol]):
+        if validaSudoku(sudoku, sudoku[randomRow], sudoku[randomCol], randomNumber):
             sudoku[randomRow][randomCol] = str(randomNumber)
             break
 
