@@ -24,3 +24,24 @@ def printSudoku(sudoku):
 
     print()
     
+def startGame():
+    while True:
+        choiceRow = int(input("Escolha a linha de 0 a 8: "))
+        choiceCol = int(input("Escolha a coluna de 0 a 8: "))
+        
+        if choiceRow < 0 or choiceRow > 8 or choiceCol < 0 or choiceCol > 8:
+            print("Posição inválida")
+        else:
+            while True:
+                choiceNumber = input("Escolha um número entre 1 e 9: ")
+                if int(choiceNumber) < 1 or int(choiceNumber) > 8:
+                    print("Número inválido")
+                else:
+                    if validaSudoku(sudoku, choiceRow, choiceCol, choiceNumber):
+                        sudoku[choiceRow][choiceCol] = choiceNumber
+                        printSudoku(sudoku)
+                        break
+                    else:
+                        print("Já existe esse numero na linha ou coluna")
+                        continue
+            
