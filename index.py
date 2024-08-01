@@ -27,6 +27,7 @@ def fillSudoku(sudoku):
         if validaSudoku(sudoku, sudoku[randomRow], sudoku[randomCol], randomNumber):
             sudoku[randomRow][randomCol] = str(randomNumber)
             break
+        counter += 1
 
 
 def printSudoku(sudoku):
