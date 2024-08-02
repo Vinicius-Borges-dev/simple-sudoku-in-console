@@ -31,7 +31,7 @@ def createSudoku():
 def fillSudoku(sudoku):
 
     # Cria 30 numeros aleatórios em posições aleatórias
-    for i in range(20):
+    for i in range(81):
 
         # Tenta adicionar um número aleatório com base na validação de linhas e colunas
         while True:
@@ -111,9 +111,10 @@ def startGame():
                         else:
                             print("Já existe esse numero na linha ou coluna")
                             continue
-                     if verificaFinalizacao(sudoku):
-                         print("Você ganhou!")
-                         break
+
+                """ if verificaFinalizacao(sudoku):
+                    print("Você ganhou!")
+                    break """
         else:
             print("Campos vazios")
             print()
