@@ -66,6 +66,19 @@ def printSudoku(sudoku):
 
     print()
 
+# Verifica se o sudoku foi terminando percorrendo todas as posições verificando se estão preenchidas, retornando um bool como resposta
+def verificaFinalizacao(sudoku):
+    areaSudoku = len(sudoku) * len(sudoku)
+    counterResult = 0
+    for i in range(9):
+        for j in range(9):
+            if sudoku[i][j] != '_':
+                counterResult += 1
+    if counterResult == areaSudoku:
+        return True
+    return False
+
+
 
 def startGame():
 
@@ -98,6 +111,9 @@ def startGame():
                         else:
                             print("Já existe esse numero na linha ou coluna")
                             continue
+                     if verificaFinalizacao(sudoku):
+                         print("Você ganhou!")
+                         break
         else:
             print("Campos vazios")
             print()
