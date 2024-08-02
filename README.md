@@ -1,4 +1,4 @@
-<h3 align="center">Repositório sob a licença GPL-3.0, use com moderação, principalmente se você estuda comigo😁</h3>
+<h3 align="center">Esse é um sudoku básico, divirta-se</h3>
 
 ### Para testar, primeiro faça o clone com
 ``` 
