@@ -1,4 +1,4 @@
-# Importação do metodo random para gerar números aleatórios
+# Importação da classe random para gerar números aleatórios
 import random
 
 
@@ -86,11 +86,7 @@ def startGame():
                 # Caso contrário, inicia um loop para pedir o numero a ser adicionado no sudoku
                 while True:
                     choiceNumber = input("Escolha um número entre 1 e 9: ")
-                    if (
-                        int(choiceNumber) < 1
-                        or int(choiceNumber) > 8
-                        or choiceNumber == ""
-                    ):
+                    if int(choiceNumber) < 1 or int(choiceNumber) > 8:
                         print("Número inválido")
                     else:
 
