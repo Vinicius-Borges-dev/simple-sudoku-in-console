@@ -153,9 +153,6 @@ def startGame():
                         else:
                             print("Já existe esse numero na linha ou coluna")
                             continue
-                        
-            
-            
         else:
             print("Campos vazios")
             print()
