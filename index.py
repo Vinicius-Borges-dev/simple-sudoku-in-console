@@ -12,6 +12,23 @@ def sudokuValidateRowsAndCols(sudoku, row, col, num):
     return True
 
 
+def quadValidate(sudoku, row, col, num):
+    
+    # Calcula e descobre o inicio do quadrante
+    iRow = (row // 3) * 3
+    iCol = (col // 3) * 3
+
+    # Percorre todo o quadrante
+    for i in range(3):
+        for j in range(3):
+            
+            # Se encontrar esse número no quadrante, retorna false
+            if sudoku[iRow + i][iCol + j] == num: 
+                return False
+    
+    return True
+
+
 
 # Função que cria o sudoku percorrendo um range de 0 a 8 criando uma matriz 9x9 preenchida com "_"
 def createSudoku():
@@ -48,7 +65,7 @@ def fillSudoku(sudoku):
                 for num in nums:
                     
                     # valida se aquele número é repetido na linha ou coluna
-                    if sudokuValidateRowsAndCols(sudoku, row, col, str(num)):
+                    if sudokuValidateRowsAndCols(sudoku, row, col, str(num)) and quadValidate(sudoku, row, col, str(num)):
                         
                         # Se sim, adiciona aquele número na posição
                         sudoku[row][col] = str(num)
@@ -142,7 +159,7 @@ def startGame():
                     else:
 
                         # A cada adição, verifica se o numero é repetido na linha ou na coluna em que está inserido
-                        if sudokuValidateRowsAndCols(sudoku, choiceRow, choiceCol, choiceNumber):
+                        if sudokuValidateRowsAndCols(sudoku, choiceRow, choiceCol, choiceNumber) and quadValidate(sudoku, choiceRow, choiceCol, choiceNumber):
                             sudoku[choiceRow][choiceCol] = choiceNumber
                             printSudoku(sudoku)
                             if finalVerification(sudoku):
@@ -151,12 +168,11 @@ def startGame():
                             
                             break
                         else:
-                            print("Já existe esse numero na linha ou coluna")
+                            print("Já existe esse numero na linha, coluna ou quadrante")
                             continue
         else:
             print("Campos vazios")
             print()
-
 
 
 
